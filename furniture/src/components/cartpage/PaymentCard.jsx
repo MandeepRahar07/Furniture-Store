@@ -94,6 +94,7 @@ const PaymentCard = () => {
                     placeholder="Enter Name"
                     value={card.name}
                     name='name'
+                    required
                     onChange={(e) => setCard({ ...card, [e.target.name]: e.target.value })}
                   />
                   <Input

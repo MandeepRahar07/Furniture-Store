@@ -85,7 +85,7 @@ function Table() {
         <div className="otherData">
           {data.map((el) => (
            <div className="linksStyle">
-                <Link style={{textDecoration:"none"}} to={`/products/${el.id}`}>
+                <Link style={{textDecoration:"none"}} to={`/products/${el._id}`}>
              <div className="box">
              {imgChair?(<img src={el.img1} alt={el.title} />):(<img src={el.img2} alt={el.title} />)}
              </div>

@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
    
    console.log(total);
    const [cartItems, setCartItems] = useState([]);
- 
+   console.log(cartItems);
    useEffect(() => {
     setCartItems(store);
 
@@ -36,7 +36,6 @@ import { useDispatch } from 'react-redux';
   const increaseQuantity = (itemId) => {
     setCartItems((prevItems) =>
       prevItems.map((item) => {
-        console.log(item)
         if (item.id === itemId) {
           return { ...item, quantity: item.quantity + 1 };
         }
@@ -65,14 +64,11 @@ import { useDispatch } from 'react-redux';
 
   
 
-  const handleRemove = (id) => {
-    
-    let data=store.filter(item=>item.id!==id);
-    // setCartItems(cartItems);
-      setStore(data)
-     
-    // show ? setShow(false) : setShow(true)
-  };
+const handleRemove = (id) => {
+  let data = store.filter(item => item.id !== id);
+  setStore(data);
+};
+
   console.log(store);
    
   return (
@@ -120,7 +116,7 @@ import { useDispatch } from 'react-redux';
                  ><i class="fa-solid fa-trash"></i></Button >
               </div>
             </div>
-          ))) : (<Heading >Loading Please Wait..... <Progress size='xs' isIndeterminate /></Heading>)}
+          ))) : (<Heading >No item in the Cart..... <Progress size='xs' isIndeterminate /></Heading>)}
 
         <div style={{ borderTop: '1px solid #ccc', marginTop: '20px', paddingTop: '10px' }}>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

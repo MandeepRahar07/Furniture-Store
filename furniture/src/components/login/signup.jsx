@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-// import './Style1.css';
-import { AuthContent } from '../../AuthContent/AuthContentProvider';
+import React, {  useState } from 'react'
+import './Style1.css';
+// import { AuthContent } from '../../AuthContent/AuthContentProvider';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 export const SignUp = () => {
 
-    const{arr,setArr,setCheck}=useContext(AuthContent)
+    // const{arr,setArr,setCheck}=useContext(AuthContent)
     const[log,setLog]=useState({
       name:"",
       email:"",
@@ -14,21 +14,71 @@ export const SignUp = () => {
     })
     console.log(log)
 
-    const saveData =(e)=>{
-        e.preventDefault()
-     let logData=arr.filter((el)=>{
-       return el.email===log.email||el.phone===log.phone
-     })
-     if(logData.length>=1){
-        alert("All ready register")
-     }else{
-        setArr([...arr,log])
+    const navigate = useNavigate();
 
-        alert("Successfully")
-        setCheck(true);
-     }
-    }
-    console.log(arr)
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const formData = {
+        email: log.email,
+        password: log.password,
+        name: log.name,
+        phone: log.phone,
+      };
+      console.log(formData);
+    
+      // Check if the email is already registered
+      const userResponse = await fetch('https://ivory-dhole-veil.cyclic.cloud/user', {
+        method: 'GET',
+      });
+    
+      if (userResponse.ok) {
+        const userData = await userResponse.json();
+        console.log('User Data:', userData);
+        const matchedUser = userData.find(user => user.email === log.email);
+    
+        if (matchedUser) {
+          alert('Email already registered. Please use a different email.');
+        } else {
+          try {
+            const response = await fetch("https://ivory-dhole-veil.cyclic.cloud/sign_up", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            });
+    
+            if (response.ok) {
+              alert("Signup successful!");
+              navigate('/login');
+            } else {
+              console.error("Signup failed.");
+              alert("Signup failed!");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+          }
+        }
+      } else {
+        console.error("Error fetching user data.");
+      }
+    };
+
+    // const saveData =(e)=>{
+    //     e.preventDefault()
+    //  let logData=arr.filter((el)=>{
+    //    return el.email===log.email||el.phone===log.phone
+    //  })
+    //  if(logData.length>=1){
+    //     alert("All ready register")
+    //  }else{
+    //     setArr([...arr,log])
+
+    //     alert("Successfully")
+    //     setCheck(true);
+    //  }
+    // }
+    // console.log(arr)
 
 
   return (
@@ -36,7 +86,7 @@ export const SignUp = () => {
     <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form onSubmit={saveData}>
+      <form onSubmit={handleSubmit}>
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>

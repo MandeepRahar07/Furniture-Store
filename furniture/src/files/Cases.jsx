@@ -40,7 +40,7 @@ function Cases() {
 const filterData=(e)=>{
   e.preventDefault()
    
-    dispatch(filterVal("table",e.target.value))
+    dispatch(filterVal("shelve",e.target.value))
     
    
   }
@@ -81,14 +81,17 @@ const filterData=(e)=>{
       </div>
       <div className="otherData">
           {data.map((el) => (
+            
            <div className="linksStyle">
-                <Link style={{textDecoration:"none"}} to={`/products/${el.id}`}>
+            
+                <Link style={{textDecoration:"none"}} to={`/products/${el._id}`}>
                 <div className="box">
              {imgChair?(<img src={el.img1} alt={el.title} />):(<img src={el.img2} alt={el.title} />)}
              </div>
               <h4 style={{ color: "gray" }}>{el.title}</h4>
             </Link>
               <div className="showd">
+              
             <p>Price: ₹ {el.price}</p>
             <button className="btnAtC"onClick={(el)=>storeData(el)}>Add to Card</button>
             </div>

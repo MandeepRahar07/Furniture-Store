@@ -39,14 +39,14 @@ const storeData=(el)=>{
 const filterData=(e)=>{
   e.preventDefault()
    
-    dispatch(filterVal("table",e.target.value))
+    dispatch(filterVal("chair",e.target.value))
     
    
   }
   const priceData =(e)=>{
     e.preventDefault()
      
-      dispatch(priceFilter("table",e.target.value))
+      dispatch(priceFilter("chair",e.target.value))
       }
   return (
     <div className="othermain1">
@@ -80,7 +80,7 @@ const filterData=(e)=>{
       <div className="otherData">
           {data.map((el) => (
            <div className="linksStyle">
-                <Link style={{textDecoration:"none"}} to={`/products/${el.id}`}>
+                <Link style={{textDecoration:"none"}} to={`/products/${el._id}`}>
                 <div className="box">
              {imgChair?(<img src={el.img1} alt={el.title} />):(<img src={el.img2} alt={el.title} />)}
              </div>

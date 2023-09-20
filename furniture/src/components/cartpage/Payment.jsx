@@ -1,5 +1,5 @@
 import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, Box, Button, Flex, FormControl, FormLabel, Grid, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, useDisclosure, useToast } from "@chakra-ui/react";
-import { Heading, Container } from '@chakra-ui/react'
+import { Heading, Container,Alert } from '@chakra-ui/react'
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
@@ -29,7 +29,7 @@ function Payment() {
     navigate('/Delivery')
       }
       const handleApply = () => {
-        if (promo === "pankaj40") {
+        if (promo === "MANDY40") {
             let val = total * 0.4; 
             let afterPromo = Math.floor(total - val);
             setTotal(afterPromo);
@@ -40,7 +40,7 @@ function Payment() {
               isClosable: true,
             })
           }
-          else if (promo === "masai60") {
+          else if (promo === "MASAI60") {
             let val = total * 0.4; 
             let afterPromo = Math.floor(total - val);
             console.log(afterPromo);
@@ -51,6 +51,10 @@ function Payment() {
               duration: 9000,
               isClosable: true,
             })
+           
+          }
+          else{
+           alert("you are able to use only two promo, MANDY40 and MASAI60")     
           }
           
           setPromo('');
@@ -72,7 +76,7 @@ function Payment() {
                         <Grid   templateColumns="repeat(2,1fr)" gap="40px">
                             <Box >
                                 <FormControl isRequired>
-                                    <Input mt={10} name="lname" placeholder='Last name' value={info.fname} onChange={(e) => setInfo({ ...info, [e.target.name]: e.target.value })}/>
+                                    <Input mt={10} name="lname" placeholder='Last name' value={info.fname} required onChange={(e) => setInfo({ ...info, [e.target.name]: e.target.value })}/>
                                     <Input mt={10} name="fname" placeholder='First name' value={info.lname} onChange={(e) => setInfo({ ...info, [e.target.name]: e.target.value })} />
                                      <Input mt={10} name='phone' placeholder="Phone" type="number" value={info.phone} onChange={(e) => setInfo({ ...info, [e.target.name]: e.target.value })}/>
                                     <Input mt={10} name='email' type="email" placeholder='Email' value={info.email} onChange={(e) => setInfo({ ...info, [e.target.name]: e.target.value })} />

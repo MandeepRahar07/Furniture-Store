@@ -3,7 +3,7 @@ import { CART_TOTAL, FILTER_DATA, GET_DATA, PAYMENT_INFO, PRICE_DATA, USER_INFO 
 
 
 
-let urlData=` http://localhost:8080/products`;
+let urlData=`https://ivory-dhole-veil.cyclic.cloud/products`;
 
 export const getData=(cate)=>async(dispatch)=>{
 

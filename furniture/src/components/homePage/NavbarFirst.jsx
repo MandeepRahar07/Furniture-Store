@@ -125,6 +125,7 @@ function NavbarFirst() {
             />
             </Link>
           </Tooltip>
+          
           <Box
           ml="-6"
           p="1"
@@ -140,8 +141,11 @@ function NavbarFirst() {
         </Box>
         </Flex>
         <Tooltip label="Menu">
-          <Menu>
+          <Menu 
+        
+          >
             <MenuButton
+              display={{lg : 'none'}}
               as={IconButton}
               aria-label="Menu"
               icon={<FaBars />}
@@ -155,6 +159,7 @@ function NavbarFirst() {
             <MenuList
               _hover={{ // Add hover effect styling for the MenuList
                 backgroundColor: 'gray.100',
+
               }}
             >
               <Link to="/chair">
@@ -176,15 +181,25 @@ function NavbarFirst() {
               <Link to="/other">
               <MenuItem _hover={{ backgroundColor: 'teal.500', color: 'white' }}>Other</MenuItem>
               </Link>
+              <Link to="/login" >
+              <MenuItem >
+              <Button colorScheme="blue" size="md" width="100%"  bg='#f79525'>
+          {namelogin.length===0 ? "Login" : namelogin}
+    </Button></MenuItem>
+              </Link>
             </MenuList>
           </Menu>
         </Tooltip>
       
-      <Link to="/login">
-        <Button colorScheme="blue" size="md" width="100%"  bg='#f79525'>
-          {namelogin.length===0 ? "Login" : namelogin}
+        <Link to="/login">
+  <Box display={{ base: 'none', md: 'none', lg: 'flex' }}>
+    <Button colorScheme="blue" size="md" width="100%" bg='#f79525'>
+      {namelogin.length === 0 ? "Login" : namelogin}
     </Button>
-    </Link>
+  </Box>
+</Link>
+
+
       </Flex>
     </Box>
   );

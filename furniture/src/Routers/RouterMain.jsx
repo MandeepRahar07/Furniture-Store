@@ -15,7 +15,7 @@ import { Cart } from '../components/cartpage/Cart';
 import Payment from '../components/cartpage/Payment';
 import ThankYouPage from '../components/cartpage/ThankYouPage';
 import PaymentPage from '../components/cartpage/Delivery';
-
+import PrivatRoute from '../PrivateRoute/PrivatRoute';
 
 function RouterMain() {
   return (
@@ -31,7 +31,10 @@ function RouterMain() {
     <Route path='/login' element={<Login/>}/>
     <Route path='/sign_up' element={<SignUp/>}/>
     <Route path="/cart"element={<Cart/>}/>
+    <Route element={<PrivatRoute/>}>
     <Route path="/payment"element={<Payment/>}/>
+    </Route>
+
     <Route path="/delivery"element={<PaymentPage/>}/>
     <Route path='/thankyoupage' element={<ThankYouPage/>}/>
    </Routes>

@@ -3,7 +3,7 @@ import { Heading } from '@chakra-ui/react'
 import CaptionCarousel1 from "./autoplayPics"
 import CaptionCarousel2 from './TopsaleTwoPic'
 import FourPicCarousel from './fourpic'
-import Footer from './footer'
+// import Footer from './footer'
 import SecondNav22 from "./navbar"
 function Home() {
   
@@ -32,7 +32,7 @@ function Home() {
       <h3>Read our articles and change your room to express yourself freely!</h3>
 <br />
 <FourPicCarousel></FourPicCarousel>
-<Footer></Footer>
+{/* <Footer></Footer> */}
     </div>
     </div>
   )
