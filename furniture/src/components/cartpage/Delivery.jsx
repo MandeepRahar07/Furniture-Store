@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { Cod } from './Cod';
 import { AuthContent } from '../../AuthContent/AuthContentProvider';
 
-
   const PaymentPage = () => {
   
   const navigate=useNavigate()

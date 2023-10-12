@@ -3,7 +3,7 @@ import { CART_TOTAL, FILTER_DATA, GET_DATA, PAYMENT_INFO, PRICE_DATA, USER_INFO 
 
 
 
-let urlData=`https://ivory-dhole-veil.cyclic.cloud/products`;
+let urlData=`https://mandeeprahar.onrender.com/products`;
 
 export const getData=(cate)=>async(dispatch)=>{
 
@@ -17,6 +17,7 @@ try{
 }
 
 }
+
 
 export const filterVal=(cate,name,price)=>async(dispatch)=>{
     try{
@@ -32,6 +33,7 @@ export const filterVal=(cate,name,price)=>async(dispatch)=>{
            
     }catch(err){}
 }
+
 export const priceFilter=(cate,price)=>async(dispatch)=>{
     try{
     
@@ -48,6 +50,7 @@ export const priceFilter=(cate,price)=>async(dispatch)=>{
            
     }catch(err){}
 }
+
 export const cartTotal=(payload)=>{
   return{
       type:CART_TOTAL,

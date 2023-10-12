@@ -27,7 +27,7 @@ export const SignUp = () => {
       console.log(formData);
     
       // Check if the email is already registered
-      const userResponse = await fetch('https://ivory-dhole-veil.cyclic.cloud/user', {
+      const userResponse = await fetch('https://mandeeprahar.onrender.com/user', {
         method: 'GET',
       });
     

@@ -30,7 +30,7 @@ export const Login = () => {
     };
 
     try {
-      const response = await fetch('https://ivory-dhole-veil.cyclic.cloud/login', {
+      const response = await fetch('https://mandeeprahar.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const Login = () => {
 
         // Now that you are logged in, you can fetch user data
         // Replace this URL with the endpoint that retrieves user data based on the token
-        const userResponse = await fetch('https://ivory-dhole-veil.cyclic.cloud/user', {
+        const userResponse = await fetch('https://mandeeprahar.onrender.com/user', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`, // Include the token in the headers

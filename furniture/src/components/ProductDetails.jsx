@@ -12,7 +12,7 @@ function ProductDetails() {
     const GetData=async(e)=>{
    
         try{
-            let result=await axios.get(`https://ivory-dhole-veil.cyclic.cloud/products/${data.id}`);
+            let result=await axios.get(`https://mandeeprahar.onrender.com/products/${data.id}`);
             console.log(result.data)
             setDt(result.data);
 
