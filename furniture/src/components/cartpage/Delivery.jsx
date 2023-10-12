@@ -20,7 +20,7 @@ import { AuthContent } from '../../AuthContent/AuthContentProvider';
   
   })
   const [value, setValue] = useState('1')
-  const {total}=useContext(AuthContent);
+  const {total,setCartItems,cartItems,setStore}=useContext(AuthContent);
 
   const handlePaymentMethodChange = (newValue) => {
     setValue(newValue);
@@ -35,16 +35,17 @@ import { AuthContent } from '../../AuthContent/AuthContentProvider';
       alert('Please fill in all the fields');
       return;
     }
-     dispatch(storePaymentInfo(paymentInfo))
-    setPaymentInfo({
-      country: '',
-      city: '',
-      zip_code: '',
-      address: ''
-    });
-     navigate('/thankyoupage')
-    console.log(paymentInfo);
+  
+    // Store payment information
+    dispatch(storePaymentInfo(paymentInfo));
+  
+    // Clear the cart items
+    setStore([]);
+  
+    // Navigate to the "thankyoupage"
+    navigate('/thankyoupage');
   };
+  
 
   return (
     <Box className='abid-payment-container'>

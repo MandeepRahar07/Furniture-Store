@@ -12,10 +12,11 @@ function AuthContentProvider({children}) {
     const[namelogin,setNamelogin]=useState("")
     const [total, setTotal] = useState();
     const[isauth, setIsauth]= useState(false);
+    const [cartItems, setCartItems] = useState([]);
     console.log(namelogin);
 
   return (
-    <AuthContent.Provider value={{data,setData,setTotal,total,categoryFilter,setCategoryFilter,imgChair,setImgChair,store,setStore,categ,setCateg,name,setName,arr,setArr,check,setCheck,namelogin,setNamelogin,isauth,setIsauth}}>{children}</AuthContent.Provider>
+    <AuthContent.Provider value={{cartItems, setCartItems,data,setData,setTotal,total,categoryFilter,setCategoryFilter,imgChair,setImgChair,store,setStore,categ,setCateg,name,setName,arr,setArr,check,setCheck,namelogin,setNamelogin,isauth,setIsauth}}>{children}</AuthContent.Provider>
   )
 }
 

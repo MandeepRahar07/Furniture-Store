@@ -3,12 +3,13 @@ import { Button,bg, Alert} from '@chakra-ui/react';
 import './Style.css';
 import { AuthContent } from '../../AuthContent/AuthContentProvider';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useToast } from '@chakra-ui/react';
 export const Login = () => {
   const { arr, setNamelogin, setIsauth ,isauth} = useContext(AuthContent);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const toast = useToast();
 
   const handleLogout = () => {
     // Clear user session (e.g., remove the token from localStorage)
@@ -42,7 +43,15 @@ export const Login = () => {
         const data = await response.json();
         console.log('Response Data:', data);
         const { token } = data;
-        alert('Login successful!');
+
+          toast({
+            position: "top",
+            title: 'Success',
+            description: 'Login successful',
+            status: 'success',
+            duration: 2000,
+            isClosable: true,
+          });
         console.log('Token:', token);
         localStorage.setItem('token', token);
 
@@ -56,10 +65,15 @@ export const Login = () => {
         });
 
         if (userResponse.ok) {
+          navigate('/');
           const userData = await userResponse.json();
           console.log('User Data:', userData);
+        
+          // Add this line to log the email being checked
+          console.log('Email to check:', email);
+        
           const matchedUser = userData.find(user => user.email === email);
-
+        
           if (matchedUser) {
             // Access the name property of the matched user
             const matchedUserName = matchedUser.name;
@@ -67,20 +81,56 @@ export const Login = () => {
             // Now you can use matchedUserName as needed, e.g., setNamelogin(matchedUserName)
             setNamelogin(matchedUserName);
             setIsauth(true);
-          } else {
-            console.log('No user found with the provided email.');
           }
+          if(!matchedUser){
+            toast({
+              position: "top",
+              title: 'Error',
+              description: ' not found. Please sign up first.',
+              status: 'error',
+              duration: 2000,
+              isClosable: true,
+            });
+          } 
+          
         }
+        else{
+          toast({
+            position: "top",
+            title: 'Error',
+            description: ' not found. Please sign up first.',
+            status: 'error',
+            duration: 2000,
+            isClosable: true,
+          });
+        }
+        
 
-        navigate('/');
+      
       } else {
-        alert('Login failed, please recheck email and password');
+        toast({
+          position: "top",
+          title: 'Error',
+          description: 'User not found. Please sign up first.',
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
+        
         console.error('Login failed. Status:', response.status);
         const errorData = await response.json();
         console.error('Error Message:', errorData.message);
       }
     } catch (error) {
-      alert('Login failed, please recheck email and password');
+      toast({
+        position: "top",
+        title: 'Error',
+        description: 'Login failed, please recheck email and password',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      });
+      // alert('Login failed, please recheck email and password');
       console.error('Error:', error);
     }
   };

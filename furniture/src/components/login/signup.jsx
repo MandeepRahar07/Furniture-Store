@@ -3,6 +3,7 @@ import './Style1.css';
 // import { AuthContent } from '../../AuthContent/AuthContentProvider';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 export const SignUp = () => {
 
     // const{arr,setArr,setCheck}=useContext(AuthContent)
@@ -13,7 +14,7 @@ export const SignUp = () => {
       password:"",
     })
     console.log(log)
-
+    const toast = useToast()
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -37,10 +38,17 @@ export const SignUp = () => {
         const matchedUser = userData.find(user => user.email === log.email);
     
         if (matchedUser) {
-          alert('Email already registered. Please use a different email.');
+          toast({
+            position: "top",
+            title: 'Error',
+            description: 'This email id is already registered. Please use another one.',
+            status: 'error',
+            duration: 2000,
+            isClosable: true,
+          });
         } else {
           try {
-            const response = await fetch("https://ivory-dhole-veil.cyclic.cloud/sign_up", {
+            const response = await fetch("https://mandeeprahar.onrender.com/sign_up", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -49,11 +57,25 @@ export const SignUp = () => {
             });
     
             if (response.ok) {
-              alert("Signup successful!");
+              toast({
+                position: "top",
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 2000,
+                isClosable: true,
+              });
               navigate('/login');
             } else {
               console.error("Signup failed.");
-              alert("Signup failed!");
+              toast({
+                position: "top",
+                title: 'Error',
+                description: 'singup failed',
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+              });
             }
           } catch (error) {
             console.error("Error:", error);

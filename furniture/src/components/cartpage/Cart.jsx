@@ -11,11 +11,11 @@ import { FaTrash } from 'react-icons/fa';
 function Cart() {
   const [show, setShow] = useState(false);
   
-  let { store, setStore, setTotal, total } = useContext(AuthContent);
+  let { store, setStore, setTotal, total,cartItems, setCartItems } = useContext(AuthContent);
   console.log(store);
   let dispatch = useDispatch();
 
-  const [cartItems, setCartItems] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
   console.log(cartItems);
 
   useEffect(() => {
