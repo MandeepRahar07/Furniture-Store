@@ -6,27 +6,38 @@ You can explore the deployed version of the Furniture Store Website by visiting 
 
 Feel free to click the link above and interact with our project. We'd love to hear your feedback!
 
-Overview
+# Overview
 The Furniture Store Website is a meticulously designed and responsive platform that offers a wide range of furniture products for users to browse, select, and purchase. It emulates the aesthetics and functionality of a modern furniture store's official website, providing a seamless experience for furniture enthusiasts and shoppers.
 
-Technologies Used
+# Technologies Used
 We've leveraged a range of cutting-edge technologies to bring you the best experience in your furniture shopping journey, just as Apple's official website does:
 
 React: A powerful JavaScript library for building user interfaces.
+
 Redux: State management library for managing application state.
+
 Node.js: JavaScript runtime for server-side scripting.
+
 HTML: The standard markup language for creating web pages.
+
 MongoDB: A NoSQL database for storing product information and user data.
+
 Express.js: A fast, unopinionated web framework for Node.js.
+
 Redux Thunk: Middleware for managing asynchronous operations in Redux.
+
 Chakra UI: A set of accessible and customizable UI components for React.
+
 
 # Features
 Our Furniture Store Website comes equipped with a range of features to enhance your shopping experience:
 
 Responsive Design: The website is designed to work seamlessly on various screen sizes, from desktop to mobile.
+
 User Authentication: Secure user registration and login functionality to personalize the shopping experience.
+
 Product Catalog: A comprehensive catalog of furniture products with detailed information, images, and pricing.
+
 Shopping Cart and Checkout: Users can easily add and manage items in their cart, then proceed to a secure checkout process.
 Screenshots
 
