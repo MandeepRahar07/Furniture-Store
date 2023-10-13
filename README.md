@@ -39,7 +39,8 @@ User Authentication: Secure user registration and login functionality to persona
 Product Catalog: A comprehensive catalog of furniture products with detailed information, images, and pricing.
 
 Shopping Cart and Checkout: Users can easily add and manage items in their cart, then proceed to a secure checkout process.
-Screenshots
+
+# Screenshots
 
 Home:
 <img width="953" alt="image" src="https://github.com/MandeepRahar07/Furniture-Store/assets/127789910/a2648e43-bd00-4bc8-a963-628e9ed32255">
@@ -81,13 +82,7 @@ Signup & Login:
 
 <img width="951" alt="image" src="https://github.com/MandeepRahar07/Furniture-Store/assets/127789910/81746fe5-1f59-49d0-8b00-8677f75a31a6">
 
-# Features
-Our Furniture Store Website comes equipped with a range of features to enhance your shopping experience:
 
-Responsive Design: The website is designed to work seamlessly on various screen sizes, from desktop to mobile.
-User Authentication: Secure user registration and login functionality to personalize the shopping experience.
-Product Catalog: A comprehensive catalog of furniture products with detailed information, images, and pricing.
-Shopping Cart and Checkout: Users can easily add and manage items in their cart, then proceed to a secure checkout process.
 
 # Acknowledgements
 Please note that the furniture store logo and design are created for this project and do not represent any existing furniture brand. This project is for educational purposes and is not affiliated with any specific furniture company.
