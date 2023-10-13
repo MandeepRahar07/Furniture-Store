@@ -99,7 +99,7 @@ Thank you once again for your support!
 
 Best regards,
 
-Your Name
+Mandeep Rahar
 
 Now, you can start customizing your website's content and design to suit your furniture store concept, and deploy it to share with the world.
 
