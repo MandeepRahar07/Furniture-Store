@@ -42,10 +42,11 @@ Shopping Cart and Checkout: Users can easily add and manage items in their cart,
 
 # Screenshots
 
-Home:
+## Home:
+
 <img width="953" alt="image" src="https://github.com/MandeepRahar07/Furniture-Store/assets/127789910/a2648e43-bd00-4bc8-a963-628e9ed32255">
 
-Responsiveness:
+## Responsiveness:
 
 Include screenshots displaying the website's responsiveness on different screen sizes, ensuring that users have a great experience on both desktop and mobile devices.
 
